@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdbool.h>
 
 #define SNULL (-1)
@@ -11,10 +12,38 @@ typedef struct Stack {
     tPosS top;
 } tStack;
 
-/* Function prototypes */
 
-void createEmptyStack(tStack *S);
-bool push(tItemS d, tStack *S);
-void pop(tStack *S);
-tItemS peek(tStack S);
-bool isEmptyStack(tStack S);
+
+
+
+void createEmptyStack(tStack *S)
+{
+    S->top = SNULL;
+}
+
+bool push(tItemS item, tStack *S)
+{
+    if (S->top==SMAX-1)
+        return false;
+    else
+    {
+        ++S->top;
+        S->Item[S->top] = item;
+    }
+    return true;
+}
+
+void pop(tStack *S)
+{
+    --S->top;
+}
+
+tItemS peek(tStack S)
+{
+    return S.Item[S.top];
+}
+
+bool isEmptyStack(tStack S)
+{
+    return S.top == SNULL;
+}
