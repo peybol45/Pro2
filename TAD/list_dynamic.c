@@ -31,7 +31,7 @@ bool insertItem(tItemL item, tPosL p, tList *L)
         else if (p==LNULL) //si la posición dada es nula
         {
             tPosL i;
-            for (i = *L; i != LNULL; i = i->sig);
+            for (i = *L; i->sig != LNULL; i = i->sig);
             i->sig = q;
         }
         else if (p==*L)
